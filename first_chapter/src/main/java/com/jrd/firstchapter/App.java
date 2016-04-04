@@ -9,6 +9,7 @@ public class App {
         System.out.println( "Hello World!" );
 
         //SystemyLiczbowe.wczytajLiczbeIWypiszWRoznychSystemach();
-        TrzyLiczby.wybierzNajwieksza();
+        KonwersjaKata.normalizujKat();
+        //TrzyLiczby.wybierzNajwieksza();
     }
 }
