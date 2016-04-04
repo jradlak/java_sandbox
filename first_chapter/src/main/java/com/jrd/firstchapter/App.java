@@ -12,6 +12,6 @@ public class App {
         //KonwersjaKata.normalizujKat();
         //TrzyLiczby.wybierzNajwieksza();
         NajwiekszaNajmniejsza.wypiszNajwiekszaINajmniejszaDouble();
-
+        Zadanie5.rzutowanie();
     }
 }
