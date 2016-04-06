@@ -1,5 +1,6 @@
 package com.jrd.firstchapter;
 
+import java.io.PrintStream;
 import java.math.BigInteger;
 
 /**
@@ -10,8 +11,10 @@ import java.math.BigInteger;
  */
 public class Silnia {
 
+    private static PrintStream ou = System.out;
+
     public static void wypiszSilnie(final int n) {
-        System.out.println("Silnia liczby " + n + " wynosi: " + obliczSilnie(n).toString());
+        ou.println("Silnia liczby " + n + " wynosi: " + obliczSilnie(n).toString());
     }
 
     public static BigInteger obliczSilnie(final int n) {

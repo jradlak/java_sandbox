@@ -13,6 +13,8 @@ public class App {
         //TrzyLiczby.wybierzNajwieksza();
         //NajwiekszaNajmniejsza.wypiszNajwiekszaINajmniejszaDouble();
         //Zadanie5.rzutowanie();
-        Silnia.wypiszSilnie(1000);
+        //Silnia.wypiszSilnie(1000);
+
+        Short.dzialania();
     }
 }
