@@ -11,7 +11,8 @@ public class App {
         //SystemyLiczbowe.wczytajLiczbeIWypiszWRoznychSystemach();
         //KonwersjaKata.normalizujKat();
         //TrzyLiczby.wybierzNajwieksza();
-        NajwiekszaNajmniejsza.wypiszNajwiekszaINajmniejszaDouble();
-        Zadanie5.rzutowanie();
+        //NajwiekszaNajmniejsza.wypiszNajwiekszaINajmniejszaDouble();
+        //Zadanie5.rzutowanie();
+        Silnia.wypiszSilnie(1000);
     }
 }
