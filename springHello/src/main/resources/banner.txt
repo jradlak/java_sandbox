@@ -1,0 +1,3 @@
+BLAAAA! Bla! Bla: ${application.title}
+
+Wersyja: ${application.formatted-version}
