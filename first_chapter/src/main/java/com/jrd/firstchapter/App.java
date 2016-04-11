@@ -15,6 +15,7 @@ public class App {
         //Zadanie5.rzutowanie();
         //Silnia.wypiszSilnie(1000);
 
-        Short.dzialania();
+        //Short.dzialania();
+        Podciagi.pobierzLiczbeIWypiszPodciagi();
     }
 }
