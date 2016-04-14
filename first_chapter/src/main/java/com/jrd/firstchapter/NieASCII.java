@@ -19,7 +19,7 @@ public class NieASCII {
         ou.println("");
         for (int i = 0; i < linia.length(); i++) {
             if (linia.charAt(i) > 255) {
-                ou.printf("%u", linia.charAt(i) + "");
+                ou.printf((int)linia.charAt(i) + ",");
             }
         }
     }
