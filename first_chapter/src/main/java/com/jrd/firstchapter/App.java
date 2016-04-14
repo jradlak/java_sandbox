@@ -16,6 +16,7 @@ public class App {
         //Silnia.wypiszSilnie(1000);
 
         //Short.dzialania();
-        Podciagi.pobierzLiczbeIWypiszPodciagi();
+        //Podciagi.pobierzLiczbeIWypiszPodciagi();
+        NieASCII.wczytajIWypiszUnicode();
     }
 }
