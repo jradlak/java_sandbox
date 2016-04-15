@@ -17,6 +17,7 @@ public class App {
 
         //Short.dzialania();
         //Podciagi.pobierzLiczbeIWypiszPodciagi();
-        NieASCII.wczytajIWypiszUnicode();
+        //NieASCII.wczytajIWypiszUnicode();
+        KwadratMagiczny.sprawdzMagiczny();
     }
 }
