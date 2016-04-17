@@ -17,6 +17,11 @@ public class App {
 
         //Short.dzialania();
         //Podciagi.pobierzLiczbeIWypiszPodciagi();
-        NieASCII.wczytajIWypiszUnicode();
+        //NieASCII.wczytajIWypiszUnicode();
+
+        // trójkąt pascala:
+        TrojkatPascala tp = new TrojkatPascala();
+        tp.budujTrojkat(7);
+        tp.wypiszTrojkat();
     }
 }
