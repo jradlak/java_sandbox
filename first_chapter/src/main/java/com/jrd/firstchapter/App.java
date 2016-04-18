@@ -19,11 +19,14 @@ public class App {
         //Podciagi.pobierzLiczbeIWypiszPodciagi();
         //NieASCII.wczytajIWypiszUnicode();
         // trójkąt pascala:
-        TrojkatPascala tp = new TrojkatPascala();
-        tp.budujTrojkat(7);
-        tp.wypiszTrojkat();
+        //TrojkatPascala tp = new TrojkatPascala();
+        //tp.budujTrojkat(7);
+        //tp.wypiszTrojkat();
 
         //KwadratMagiczny.sprawdzMagiczny();
 
+        //Lotto:
+        Lotto lotto = new Lotto();
+        System.out.println(lotto.losowanie().toString());
     }
 }
