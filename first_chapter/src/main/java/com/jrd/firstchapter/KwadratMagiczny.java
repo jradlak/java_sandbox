@@ -60,7 +60,6 @@ public class KwadratMagiczny {
 
     public static List<List<String>> wczytajKwadrat() {
         List<List<String>> kwadrat = new ArrayList<>();
-
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(k -> kwadrat.add(new ArrayList<>(Arrays.asList(k.split(",")))));
             ou.println(kwadrat.toString());
