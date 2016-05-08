@@ -8,7 +8,7 @@ import java.io.PrintStream;
 
 /**
  * Rozwiązanie zadania 13 z rozdziału 2
- * 
+ *
  * Created by jakub on 02.05.16.
  */
 public class Csv {
