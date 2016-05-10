@@ -1,13 +1,20 @@
 package com.jrd.second_chapter;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /**
  * Created by jakub on 08.05.16.
  *
  * Rozwiązanie zadania 16
- * Implementacji neograniczonejkolejki ciągów znaków
+ * Implementacji neograniczonej kolejki ciągów znaków
+ *
+ * Rozwiązanie zadania 17
+ * Implemetnacja iterator tej kolejki
  */
-public class Queue {
-    private static class Node {
+public class Queue implements Iterable<Queue.Node> {
+
+    public static class Node {
         private String value;
         private Node nextNode;
 
@@ -28,9 +35,35 @@ public class Queue {
         }
     }
 
+    private class QueueIterator implements Iterator<Node> {
+        private Node currentNode;
+
+        public void setCurrentNode(Node currentNode) {
+            this.currentNode = currentNode;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return currentNode != null;
+        }
+
+        @Override
+        public Node next() {
+            if (currentNode != null) {
+                Node node = currentNode;
+                currentNode = currentNode.getNextNode();
+                return node;
+            } else {
+                throw new NoSuchElementException();
+            }
+        }
+    }
+
     private Node firstNode;
 
     private Node lastNode;
+
+    private QueueIterator iterator = new QueueIterator();
 
     private long size;
 
@@ -38,10 +71,16 @@ public class Queue {
         return size;
     }
 
+    @Override
+    public Iterator<Node> iterator() {
+        return this.iterator;
+    }
+
     public void enqueue(String value) {
         if (firstNode == null) {
             firstNode = new Node(value);
             lastNode = firstNode;
+            iterator.setCurrentNode(firstNode);
         } else {
             Node newNode = new Node(value);
             lastNode.setNextNode(newNode);

@@ -42,4 +42,11 @@ public class QueueTest {
         queue.dequeue();
         queue.dequeue();
     }
+
+    @Test
+    public void testQueueIterator() {
+        for(Queue.Node node : queue) {
+            System.out.println(node.getValue());
+        }
+    }
 }
