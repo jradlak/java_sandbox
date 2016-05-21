@@ -5,9 +5,15 @@ package com.jrd.third_chapter.spec;
  */
 
 public interface IntSequence {
-    boolean hasNext();
+    default boolean hasNext() { return true; }
     int next();
 
+    /**
+     * Rozwiązanie zadania 4.
+     * Metoda zwraca sekwencje elementów przekazanych jako argument
+     * @param args
+     * @return
+     */
     static IntSequence of(int... args) {
         return new IntSequence() {
 
@@ -25,5 +31,14 @@ public interface IntSequence {
                 return ints[i++];
             }
         };
+    }
+
+    /**
+     * Rozwiązanie zadania 5: zwracanie stałego nieskończonego ciągu
+     * @param value
+     * @return
+     */
+    static IntSequence constant(int value) {
+        return () -> value;
     }
 }
