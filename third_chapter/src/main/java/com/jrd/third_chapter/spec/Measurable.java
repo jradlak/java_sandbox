@@ -1,6 +1,7 @@
 package com.jrd.third_chapter.spec;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Created by jakub on 21.05.16.
@@ -19,5 +20,12 @@ public interface Measurable {
                 .stream()
                 .mapToDouble(i -> i.getMeasure())
                 .sum() / objects.length;
+    }
+
+    static Measurable largest(Measurable[] objects) {
+        return Arrays.asList(objects)
+                .stream()
+                .max(Comparator.comparing(i -> i.getMeasure()))
+                .get();
     }
 }

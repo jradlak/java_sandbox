@@ -26,4 +26,10 @@ public class EmployeeTest {
         double avarage = Measurable.average(employees);
         Assert.assertTrue(avarage == 650 / 3.0);
     }
+
+    @Test
+    public void largestSalaryTest() {
+        Employee largest = (Employee)Measurable.largest(employees);
+        Assert.assertTrue("prac2".equals(largest.getName()));
+    }
 }
