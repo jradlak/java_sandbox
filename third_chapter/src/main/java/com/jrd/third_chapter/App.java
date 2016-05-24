@@ -17,7 +17,8 @@ public class App {
 
         //greeterTest();
 
-        taskRunnerTest();
+        //taskRunnerTest();
+        printDirectoryTest();
     }
 
     private static void greeterTest() {
@@ -40,5 +41,10 @@ public class App {
         TaskRunner taskRunner = new TaskRunner();
         taskRunner.runInOrder(tasks.stream().toArray(Greeter[]::new));
         taskRunner.runTogether(tasks.stream().toArray(Greeter[]::new));
+    }
+
+    private static void printDirectoryTest() {
+        DirectoryPrinter directoryPrinter = new DirectoryPrinter();
+        directoryPrinter.printDirectory("/home/jakub");
     }
 }

@@ -3,7 +3,7 @@ package com.jrd.third_chapter;
 import java.util.Arrays;
 
 /**
- * Rozwiązanie zadania 8: dwie matody:
+ * Rozwiązanie zadania 9: dwie matody:
  * Pierwsza wykonuje równoległe pewien zbiór zadań.
  * Druga ten sam zbiór zadań wykonuje sekwencyjnie
  *
