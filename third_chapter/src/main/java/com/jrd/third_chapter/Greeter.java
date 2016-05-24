@@ -16,7 +16,7 @@ public class Greeter implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < n; i++) {
-            System.out.println("Witaj " + target);
+            System.out.println(target);
         }
     }
 }
