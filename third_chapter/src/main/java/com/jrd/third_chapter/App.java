@@ -45,6 +45,8 @@ public class App {
 
     private static void printDirectoryTest() {
         DirectoryPrinter directoryPrinter = new DirectoryPrinter();
-        directoryPrinter.printDirectory("/home/jakub");
+        //directoryPrinter.printDirectory("/home/jakub");
+
+        directoryPrinter.printFiles("/home/jakub", ".log");
     }
 }

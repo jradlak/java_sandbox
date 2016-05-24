@@ -6,9 +6,13 @@ import java.io.PrintStream;
 import java.util.Arrays;
 
 /**
- * rozwiązanie zadania 10
+ * rozwiązanie zadania 10 i 11
+ * Zadanie 10:
  * wyświetlania podkatalogów wskazanego katalogu dwoma metodami:
  * za pomocą klasy anonimowej i wyrażeń lambda
+ *
+ * Zadanie 11:
+ * Wypisuje listę plików z danego katalogu o zadanym rozszerzeniu
  * Created by jakub on 24.05.16.
  */
 public class DirectoryPrinter {
@@ -29,8 +33,22 @@ public class DirectoryPrinter {
                 ((new File(file + "/" + s)).isDirectory())
         );
 
-        Arrays.asList(dirs).stream().forEach(d -> ou.println(d));
+        print(dirs);
         ou.println("\n Dirs lambda: \n");
-        Arrays.asList(dirsLambda).stream().forEach(d -> ou.println(d));
+        print(dirsLambda);
+    }
+
+    public void printFiles(String dir, String ext) {
+        File file = new File(dir);
+        String[] files = file.list((fl, s) -> {
+            File ff = new File(file + "/" + s);
+            return ff.isFile() && ff.getName().endsWith(ext);
+        });
+
+        print(files);
+    }
+
+    private static void print(String... names) {
+        Arrays.asList(names).stream().forEach(d -> ou.println(d));
     }
 }
