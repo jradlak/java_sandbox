@@ -18,7 +18,8 @@ public class App {
         //greeterTest();
 
         //taskRunnerTest();
-        printDirectoryTest();
+        //printDirectoryTest();
+        sortFilesTest();
     }
 
     private static void greeterTest() {
@@ -48,5 +49,10 @@ public class App {
         //directoryPrinter.printDirectory("/home/jakub");
 
         directoryPrinter.printFiles("/home/jakub", ".log");
+    }
+
+    private static void sortFilesTest() {
+        DirectoryPrinter directoryPrinter = new DirectoryPrinter();
+        directoryPrinter.sortDirectory("/home/jakub");
     }
 }
