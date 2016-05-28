@@ -24,4 +24,12 @@ public class Employee implements Measurable {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
