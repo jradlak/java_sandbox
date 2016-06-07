@@ -1,4 +1,4 @@
-package com.jrd.fourth_chapter.point;
+package com.jrd.fourth_chapter.geometry;
 
 /**
  * Rozwiązanie zadania 1 z rozdziału 4
@@ -8,9 +8,9 @@ package com.jrd.fourth_chapter.point;
  */
 public class Point {
 
-    private double x;
+    protected double x;
 
-    private double y;
+    protected double y;
 
     public Point(double x, double y) {
         this.x = x;

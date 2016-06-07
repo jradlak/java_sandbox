@@ -1,4 +1,4 @@
-package com.jrd.fourth_chapter.point;
+package com.jrd.fourth_chapter.geometry;
 
 /**
  * Rozwiązanie zadania 1 z rozdziału 4
@@ -13,6 +13,11 @@ public class LabeledPoint extends Point {
     public LabeledPoint(double x, double y, String label) {
         super(x, y);
         this.label = label;
+    }
+
+    public void translate(double deltaX, double deltaY) {
+        x += deltaX;
+        y += deltaY;
     }
 
     public String getLabel() {
