@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Created by ThinkPad on 2016-06-07.
+ * Created by Jakub on 2016-06-07.
  */
 public class LabaledPointTest {
 

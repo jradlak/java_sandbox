@@ -2,7 +2,9 @@ package com.jrd.fourth_chapter.point;
 
 /**
  * Rozwiązanie zadania 1 z rozdziału 4
- * Created by ThinkPad on 2016-06-07.
+ *
+ * Rozwiązanie zadania 2: implementacja metod equals, hashCcode i toString
+ * Created by Jakub on 2016-06-07.
  */
 public class LabeledPoint extends Point {
 
@@ -15,5 +17,30 @@ public class LabeledPoint extends Point {
 
     public String getLabel() {
         return label;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof LabeledPoint)) return false;
+        if (!super.equals(o)) return false;
+
+        LabeledPoint that = (LabeledPoint)o;
+
+        return getLabel() != null ? getLabel().equals(that.getLabel()) : that.getLabel() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (getLabel() != null ? getLabel().hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "LabeledPoint{" +
+                "label='" + label + '\'' +
+                "} " + super.toString();
     }
 }
