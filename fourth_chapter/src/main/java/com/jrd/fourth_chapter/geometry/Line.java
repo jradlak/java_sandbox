@@ -15,8 +15,8 @@ public class Line extends Shape {
     @Override
     public Point getCenter() {
         return new Point(
-                    (to.getX() - point.getX()) / 2,
-                    (to.getY() - point.getY()) / 2
+                    point.getX() + (to.getX() - point.getX()) / 2,
+                    point.getY() + (to.getY() - point.getY()) / 2
                 );
     }
 }
