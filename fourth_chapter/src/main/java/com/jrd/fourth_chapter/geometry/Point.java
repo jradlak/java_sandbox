@@ -6,7 +6,7 @@ package com.jrd.fourth_chapter.geometry;
  * Rozwiązanie zadania 2: implementacja metod equals, hashCcode i toString
  * Created by Jakub on 2016-06-07.
  */
-public class Point {
+public class Point implements Cloneable {
 
     protected double x;
 
@@ -53,5 +53,9 @@ public class Point {
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    public Point clone() {
+        return new Point(x, y);
     }
 }

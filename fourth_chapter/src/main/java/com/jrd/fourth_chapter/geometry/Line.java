@@ -3,7 +3,7 @@ package com.jrd.fourth_chapter.geometry;
 /**
  * Created by jakub on 07.06.16.
  */
-public class Line extends Shape {
+public class Line extends Shape implements Cloneable {
 
     Point to;
 
@@ -18,5 +18,9 @@ public class Line extends Shape {
                     point.getX() + (to.getX() - point.getX()) / 2,
                     point.getY() + (to.getY() - point.getY()) / 2
                 );
+    }
+
+    public Line clone() {
+        return new Line(point.clone(), to.clone());
     }
 }

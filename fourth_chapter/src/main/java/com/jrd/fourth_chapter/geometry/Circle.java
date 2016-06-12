@@ -3,7 +3,7 @@ package com.jrd.fourth_chapter.geometry;
 /**
  * Created by jakub on 07.06.16.
  */
-public class Circle extends Shape {
+public class Circle extends Shape implements Cloneable {
 
     private double radius;
 
@@ -15,5 +15,9 @@ public class Circle extends Shape {
     @Override
     public Point getCenter() {
         return point;
+    }
+
+    public Circle clone() {
+        return new Circle(point.getX(), point.getY(), radius);
     }
 }

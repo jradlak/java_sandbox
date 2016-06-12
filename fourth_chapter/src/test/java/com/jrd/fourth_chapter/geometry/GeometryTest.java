@@ -29,4 +29,38 @@ public class GeometryTest {
         Point center = rectangle.getCenter();
         Assert.assertTrue(center.getX() == 75 && center.getY() == 40);
     }
+
+    @Test
+    public void testClonePoint() {
+        Point point = new Point(10, 10);
+        Point cPoint = point.clone();
+        Assert.assertTrue(point.getX() == cPoint.getX() && point.getY() == cPoint.getY());
+    }
+
+    @Test
+    public void testCloneCircle() {
+        Circle circle = new Circle(10, 12, 3);
+        Circle cCircle = circle.clone();
+        circle.moveBy(2, 3);
+        Assert.assertTrue(circle.getCenter().getX() - cCircle.getCenter().getX() == 2);
+        Assert.assertTrue(circle.getCenter().getY() - cCircle.getCenter().getY() == 3);
+    }
+
+    @Test
+    public void testCloneLine() {
+        Line line = new Line(new Point(10, 10), new Point(20, 20));
+        Line cLine = line.clone();
+        Assert.assertTrue(line.getCenter().equals(cLine.getCenter()));
+        line.moveBy(12, 13);
+        Assert.assertTrue(!line.getCenter().equals(cLine.getCenter()));
+    }
+
+    @Test
+    public void testCloneRectangle() {
+        Rectangle rect = new Rectangle(new Point(10, 20), 5, 6);
+        Rectangle cRect = rect.clone();
+        Assert.assertTrue(rect.getCenter().equals(cRect.getCenter()));
+        rect.moveBy(2, 3);
+        Assert.assertTrue(!rect.getCenter().equals(cRect.getCenter()));
+    }
 }
