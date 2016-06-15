@@ -1,5 +1,7 @@
 package com.jrd.firstchapter;
 
+import java.time.LocalDate;
+
 /**
  * Hello world!
  *
@@ -15,6 +17,18 @@ public class App {
         //Zadanie5.rzutowanie();
         //Silnia.wypiszSilnie(1000);
 
-        Short.dzialania();
+        //Short.dzialania();
+        //Podciagi.pobierzLiczbeIWypiszPodciagi();
+        //NieASCII.wczytajIWypiszUnicode();
+        // trójkąt pascala:
+        //TrojkatPascala tp = new TrojkatPascala();
+        //tp.budujTrojkat(7);
+        //tp.wypiszTrojkat();
+
+        //KwadratMagiczny.sprawdzMagiczny();
+
+        //Lotto:
+        Lotto lotto = new Lotto();
+        System.out.println(lotto.losowanie().toString());
     }
 }
