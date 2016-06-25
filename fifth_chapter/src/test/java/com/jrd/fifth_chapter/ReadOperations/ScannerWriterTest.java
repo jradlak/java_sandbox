@@ -2,6 +2,8 @@ package com.jrd.fifth_chapter.ReadOperations;
 
 import org.junit.Test;
 
+import java.util.Scanner;
+
 /**
  * Created by jakub on 25.06.16.
  */
