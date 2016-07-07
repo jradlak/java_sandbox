@@ -1,14 +1,15 @@
-package com.jrd.sixth_chapter.stack;
-
+package com.jrd.sixth_chapter.tablestack;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 /**
  * Created by Kuba on 2016-07-07.
  */
-public class StackTest {
+public class TableStackTest {
     private Stack<String> stack;
 
     private static final String tvala = "aaaa";
@@ -17,7 +18,7 @@ public class StackTest {
 
     @Before
     public void setup() {
-        stack = new Stack<>();
+        stack = new Stack<>(String.class);
     }
 
     @Test
@@ -37,7 +38,25 @@ public class StackTest {
 
     @Test(expected = Exception.class)
     public void testEmptyStack() throws Exception {
-        Stack<String> emptyStack = new Stack<>();
+        Stack<String> emptyStack = new Stack<>(String.class);
         emptyStack.pop();
+    }
+
+    @Test
+    public void testStackConsistency() throws Exception {
+        ArrayList<String> testList = new ArrayList<>();
+        Stack<String> consistentStack = new Stack<>(String.class);
+        int n = 201;
+        for (int i = 0; i < n; i++) {
+            String elm = "test" + i;
+            testList.add(elm);
+            consistentStack.push(elm);
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            String testVal = testList.get(i);
+            String currentVal = consistentStack.pop();
+            Assert.assertTrue(testVal.equals(currentVal));
+        }
     }
 }
