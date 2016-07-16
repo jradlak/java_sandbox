@@ -1,4 +1,4 @@
-package com.jrd.sixth_chapter.table;
+package com.jrd.sixth_chapter.entry;
 
 import java.util.ArrayList;
 

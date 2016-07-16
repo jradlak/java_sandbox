@@ -1,4 +1,4 @@
-package com.jrd.sixth_chapter.table;
+package com.jrd.sixth_chapter.entry;
 
 /**
  * Created by Kuba on 2016-07-09.

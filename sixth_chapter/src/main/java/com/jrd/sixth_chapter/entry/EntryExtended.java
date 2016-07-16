@@ -1,6 +1,4 @@
-package com.jrd.sixth_chapter.table;
-
-import com.jrd.sixth_chapter.table.Entry;
+package com.jrd.sixth_chapter.entry;
 
 /**
  * Created by Kuba on 2016-07-15.

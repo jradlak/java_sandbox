@@ -1,5 +1,7 @@
 package com.jrd.sixth_chapter.table;
 
+import com.jrd.sixth_chapter.entry.Entry;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
