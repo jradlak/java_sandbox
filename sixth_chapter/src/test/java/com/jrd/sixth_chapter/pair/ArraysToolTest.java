@@ -12,14 +12,28 @@ import java.util.Arrays;
  */
 public class ArraysToolTest {
 
+    private final static Double[] testArray = new Double[] {5.1, 2.5, 2.6, 8.1, 3.4 };
+
     @Test
     public void pierwszyIOstatniTest() {
         Pair<Double> minimax = ArraysTool.pierwszyOstatni(
-                new ArrayList<>(Arrays.asList(new Double[]{
-                5.1, 2.5, 2.6, 8.1, 3.4
-        })));
+                new ArrayList<>(Arrays.asList(testArray)));
 
         Assert.assertTrue(2.5 == minimax.getFirst()
                 && 8.1 == minimax.getLast());
+    }
+
+    @Test
+    public void minTest() {
+        Double min = ArraysTool.min(testArray);
+
+        Assert.assertTrue(2.5 == min);
+    }
+
+    @Test
+    public void maxTest() {
+        Double max = ArraysTool.max(testArray);
+
+        Assert.assertTrue(8.1 == max);
     }
 }
