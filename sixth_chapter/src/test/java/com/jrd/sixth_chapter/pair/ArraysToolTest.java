@@ -14,26 +14,40 @@ public class ArraysToolTest {
 
     private final static Double[] testArray = new Double[] {5.1, 2.5, 2.6, 8.1, 3.4 };
 
+    private final static Double vMin = 2.5;
+
+    private final static Double vMax = 8.1;
+
     @Test
     public void pierwszyIOstatniTest() {
         Pair<Double> minimax = ArraysTool.pierwszyOstatni(
                 new ArrayList<>(Arrays.asList(testArray)));
 
-        Assert.assertTrue(2.5 == minimax.getFirst()
-                && 8.1 == minimax.getLast());
+        pairTest(minimax);
     }
 
     @Test
     public void minTest() {
         Double min = ArraysTool.min(testArray);
 
-        Assert.assertTrue(2.5 == min);
+        Assert.assertTrue(vMin.equals(min));
     }
 
     @Test
     public void maxTest() {
         Double max = ArraysTool.max(testArray);
 
-        Assert.assertTrue(8.1 == max);
+        Assert.assertTrue(vMax.equals(max));
+    }
+
+    @Test
+    public void minMaxTest() {
+        Pair<Double> minIMax = ArraysTool.minMax(testArray);
+        pairTest(minIMax);
+    }
+
+
+    public void pairTest(Pair<Double> minIMax) {
+        Assert.assertTrue(vMin.equals(minIMax.getFirst()) && vMax.equals(minIMax.getLast()));
     }
 }

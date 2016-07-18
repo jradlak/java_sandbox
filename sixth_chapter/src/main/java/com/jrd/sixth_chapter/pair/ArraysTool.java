@@ -6,7 +6,7 @@ import java.util.Arrays;
 /**
  * Created by Kuba on 2016-07-16.
  *
- * Rozwiązanie zadania 9 i 10
+ * Rozwiązanie zadania 9, 10 i 11
  */
 public class ArraysTool {
 
@@ -25,5 +25,12 @@ public class ArraysTool {
 
     public static <T extends Comparable<T>> T max(T[] a) {
         return Arrays.asList(a).stream().max(Comparable::compareTo).get();
+    }
+
+    public static <T extends Comparable<T>> Pair<T> minMax(T[] a) {
+        T min = min(a);
+        T max = max(a);
+
+        return new Pair<>(min, max);
     }
 }
