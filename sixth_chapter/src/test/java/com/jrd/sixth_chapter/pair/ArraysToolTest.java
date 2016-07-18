@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 
 /**
@@ -46,8 +48,24 @@ public class ArraysToolTest {
         pairTest(minIMax);
     }
 
+    @Test
+    public void minMaxTest2() {
+        List<Double> wynik = new ArrayList<>();
+        ArraysTool.minmax(Arrays.asList(testArray), new Comparator<Double>() {
+            @Override
+            public int compare(Double o1, Double o2) {
+                return o1.compareTo(o2);
+            }
+        }, wynik);
+
+        Assert.assertTrue(wynik.size() == 2);
+        Assert.assertTrue(vMin.equals(wynik.get(0)));
+        Assert.assertTrue(vMax.equals(wynik.get(1)));
+    }
 
     public void pairTest(Pair<Double> minIMax) {
         Assert.assertTrue(vMin.equals(minIMax.getFirst()) && vMax.equals(minIMax.getLast()));
     }
+
+
 }

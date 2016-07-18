@@ -1,17 +1,18 @@
 package com.jrd.sixth_chapter.pair;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * Created by Kuba on 2016-07-16.
  *
- * Rozwiązanie zadania 9, 10 i 11
+ * Rozwiązanie zadania 9, 10, 11 i 12
  */
 public class ArraysTool {
 
     @SuppressWarnings("unchecked")
-    public static <E extends Comparable<E>> Pair<E> pierwszyOstatni(ArrayList<E> a) {
+    public static <E extends Comparable<E>> Pair<E> pierwszyOstatni(List<E> a) {
         E max = a.stream().max(Comparable::compareTo).get();
         E min = a.stream().min(Comparable::compareTo).get();
 
@@ -32,5 +33,12 @@ public class ArraysTool {
         T max = max(a);
 
         return new Pair<>(min, max);
+    }
+
+    public static <T> void minmax(List<T> elementy, Comparator<? super T> comp, List<? super T> wynik) {
+        T max = elementy.stream().max(comp::compare).get();
+        T min = elementy.stream().min(comp::compare).get();
+        wynik.add(min);
+        wynik.add(max);
     }
 }
