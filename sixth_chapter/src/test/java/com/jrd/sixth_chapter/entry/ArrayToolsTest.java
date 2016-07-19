@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Kuba on 2016-07-15.
@@ -48,7 +49,45 @@ public class ArrayToolsTest {
 
         Assert.assertTrue(dest.size() == 4);
         Assert.assertTrue((val2 + val2).equals(dest.get(3).getValue()));
+    }
 
+    @Test
+    public void closeAllTest() {
+        ArrayList<Closable> all = new ArrayList<>(Arrays.asList(new Closable[] {
+            new Closable(true, "cl1"), new Closable(false, "cl2"),
+                new Closable(false, "cl3"), new Closable(true, "cl4")
+        }));
+
+        try {
+            ArrayTools.closeAll(all);
+        } catch (Exception e) {
+            printAllCouses(e);
+        }
+    }
+
+    private void printAllCouses(Throwable e) {
+        if (e.getCause() != null) {
+            printAllCouses(e.getCause());
+        }
+
+        System.out.println(e.getMessage());
+    }
+
+    private static class Closable implements AutoCloseable {
+
+        private boolean canClose;
+
+        private String name;
+
+        public Closable(boolean canClose, String name) {
+            this.canClose = canClose;
+            this.name = name;
+        }
+
+        @Override
+        public void close() throws Exception {
+            if (!canClose) throw new Exception(name + " cannot close.");
+        }
     }
 
 }
