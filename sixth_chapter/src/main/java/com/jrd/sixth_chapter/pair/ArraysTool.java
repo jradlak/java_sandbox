@@ -1,8 +1,10 @@
 package com.jrd.sixth_chapter.pair;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * Created by Kuba on 2016-07-16.
@@ -40,5 +42,11 @@ public class ArraysTool {
         T min = elementy.stream().min(comp::compare).get();
         wynik.add(min);
         wynik.add(max);
+    }
+
+    public static <T, R> ArrayList<R> map(ArrayList<T> a, Function<T, R> func) {
+        final ArrayList<R> result = new ArrayList<R>();
+        a.forEach(e -> result.add(func.apply(e)));
+        return result;
     }
 }

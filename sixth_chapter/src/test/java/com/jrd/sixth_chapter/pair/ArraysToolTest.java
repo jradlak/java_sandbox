@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 
 /**
@@ -63,9 +64,18 @@ public class ArraysToolTest {
         Assert.assertTrue(vMax.equals(wynik.get(1)));
     }
 
+    @Test
+    public void mapTest() {
+        ArrayList<Double> testList = new ArrayList<>(Arrays.asList(testArray));
+        ArrayList<Double> resultList = ArraysTool.map(testList, e -> e * 2);
+
+        Assert.assertTrue(testList.size() == resultList.size());
+        for (int i = 0; i < testList.size(); i++) {
+            Assert.assertTrue(testList.get(i) * 2 == resultList.get(i));
+        }
+    }
+
     public void pairTest(Pair<Double> minIMax) {
         Assert.assertTrue(vMin.equals(minIMax.getFirst()) && vMax.equals(minIMax.getLast()));
     }
-
-
 }
