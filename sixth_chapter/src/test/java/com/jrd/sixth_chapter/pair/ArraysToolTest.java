@@ -3,6 +3,7 @@ package com.jrd.sixth_chapter.pair;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -95,8 +96,14 @@ public class ArraysToolTest {
 
     @Test
     public void createArrayTest() {
-        Double[] arr = ArraysTool.createArray(10, Double[]::new);
+        List<Double>[] arr = ArraysTool.<List<Double>>createArray(10);
         Assert.assertTrue(arr.length == 10);
+    }
+
+    @Test
+    public void doWorkTest() {
+        //TODO: fix this!!!
+        //ArraysTool.doWork(() -> new String("test"), FileNotFoundException::new);
     }
 
     public void pairTest(Pair<Double> minIMax) {

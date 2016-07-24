@@ -1,9 +1,12 @@
 package com.jrd.sixth_chapter.pair;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 
@@ -74,8 +77,20 @@ public class ArraysTool {
         return newArray;
     }
 
-    public static <T> T[] createArray(int size, IntFunction<T[]> constr) {
-        T[] wynik = constr.apply(size);
-        return wynik;
+    @SafeVarargs
+    @SuppressWarnings("unchecked")
+    public static <T> T[] createArray(int size, T... objs) {
+        T[] newArray = (T[])java.lang.reflect.Array.newInstance(objs.getClass().getComponentType(), size);
+        return newArray;
+    }
+
+    // TODO: fix this!!!
+    public static <V, T extends Throwable> V doWork(Callable<V> c, T exe) throws T, IllegalAccessException, InvocationTargetException, InstantiationException {
+        try {
+            return c.call();
+        } catch (Throwable realEx) {
+            exe.initCause(realEx);
+            throw exe;
+        }
     }
 }
