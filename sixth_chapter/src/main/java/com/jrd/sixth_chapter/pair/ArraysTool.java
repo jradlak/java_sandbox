@@ -59,4 +59,18 @@ public class ArraysTool {
 
         return wynik;
     }
+
+    @SafeVarargs
+    @SuppressWarnings("unchecked")
+    public static final <T> T[] repeat(int n, T... objs) {
+        int oldSize = java.lang.reflect.Array.getLength(objs);
+        int newSize = oldSize * n;
+
+        T[] newArray = (T[])java.lang.reflect.Array.newInstance(objs.getClass().getComponentType(), newSize);
+        for (int i = 0; i < newSize; i++) {
+            newArray[i] = objs[i % oldSize];
+        }
+
+        return newArray;
+    }
 }

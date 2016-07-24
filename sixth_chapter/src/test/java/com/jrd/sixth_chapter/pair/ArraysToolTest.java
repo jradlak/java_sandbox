@@ -82,6 +82,17 @@ public class ArraysToolTest {
         Assert.assertTrue(Arrays.stream(intarr).allMatch(a -> a.equals(42)));
     }
 
+    @Test
+    public void repeatTest() {
+        Double[] doubledArray = ArraysTool.repeat(2, testArray);
+
+        Assert.assertTrue(doubledArray.length == testArray.length * 2);
+
+        for (int i = 0; i < testArray.length; i++) {
+            Assert.assertTrue(doubledArray[i].equals(doubledArray[i + testArray.length]));
+        }
+    }
+
     public void pairTest(Pair<Double> minIMax) {
         Assert.assertTrue(vMin.equals(minIMax.getFirst()) && vMax.equals(minIMax.getLast()));
     }
