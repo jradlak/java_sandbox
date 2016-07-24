@@ -73,4 +73,9 @@ public class ArraysTool {
 
         return newArray;
     }
+
+    public static <T> T[] createArray(int size, IntFunction<T[]> constr) {
+        T[] wynik = constr.apply(size);
+        return wynik;
+    }
 }

@@ -93,6 +93,12 @@ public class ArraysToolTest {
         }
     }
 
+    @Test
+    public void createArrayTest() {
+        Double[] arr = ArraysTool.createArray(10, Double[]::new);
+        Assert.assertTrue(arr.length == 10);
+    }
+
     public void pairTest(Pair<Double> minIMax) {
         Assert.assertTrue(vMin.equals(minIMax.getFirst()) && vMax.equals(minIMax.getLast()));
     }
