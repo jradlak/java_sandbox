@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 
 /**
  * Created by Kuba on 2016-07-16.
@@ -48,5 +49,14 @@ public class ArraysTool {
         final ArrayList<R> result = new ArrayList<R>();
         a.forEach(e -> result.add(func.apply(e)));
         return result;
+    }
+
+    public static <T> T[] powtarzaj(int n, T obj, IntFunction<T[]> constr) {
+        T[] wynik = constr.apply(n);
+        for (int i = 0; i < n; i++) {
+            wynik[i] = obj;
+        }
+
+        return wynik;
     }
 }

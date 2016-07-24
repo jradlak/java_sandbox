@@ -75,6 +75,13 @@ public class ArraysToolTest {
         }
     }
 
+    @Test
+    public void powtarzajTest() {
+        Integer[] intarr = ArraysTool.powtarzaj(10, 42, Integer[]::new);
+
+        Assert.assertTrue(Arrays.stream(intarr).allMatch(a -> a.equals(42)));
+    }
+
     public void pairTest(Pair<Double> minIMax) {
         Assert.assertTrue(vMin.equals(minIMax.getFirst()) && vMax.equals(minIMax.getLast()));
     }
