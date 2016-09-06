@@ -20,6 +20,18 @@ public class Graph {
         this.vertices = new HashMap<>();
     }
 
+    public Vertex getVertexByName(String vertexName) throws Exception {
+        if (!this.vertices.containsKey(vertexName)) {
+            throw new Exception("There is no vertex of name " + vertexName + ".");
+        }
+
+        return this.vertices.get(vertexName);
+    }
+
+    public int getNumberOfVertices() {
+        return this.vertices.size();
+    }
+
     public void addVertex(String vertexName) {
         this.vertices.put(vertexName, new Vertex(vertexName));
     }
@@ -44,7 +56,7 @@ public class Graph {
         modifyWeight(vertexB, vertexA, weight);
     }
 
-    private void checkVertices(String source, String destination) throws  Exception {
+    private void checkVertices(String source, String destination) throws Exception {
         if (!this.vertices.containsKey(source)) {
             throw new Exception("No source " + source);
         }
@@ -54,7 +66,14 @@ public class Graph {
         }
     }
 
-    private static class Vertex {
+    @Override
+    public String toString() {
+        return "Graph{" +
+                "vertices=" + vertices +
+                '}';
+    }
+
+    public static class Vertex {
         private String name;
 
         private Map<String, Edge> edges;
@@ -86,9 +105,18 @@ public class Graph {
         public void setPathLength(double pathLength) {
             this.pathLength = pathLength;
         }
+
+        @Override
+        public String toString() {
+            return "\nVertex{" +
+                    "name='" + name + '\'' +
+                    ", edges=" + edges +
+                    ", pathLength=" + pathLength +
+                    '}';
+        }
     }
 
-    private static class Edge {
+    public static class Edge {
         private double weight;
         private Vertex sourceVertex;
         private Vertex destinationVertex;
@@ -113,6 +141,15 @@ public class Graph {
 
         public Vertex getDestinationVertex() {
             return destinationVertex;
+        }
+
+        @Override
+        public String toString() {
+            return "Edge{" +
+                    "weight=" + weight +
+                    ", sourceVertex=" + sourceVertex.getName() +
+                    ", destinationVertex=" + destinationVertex.getName() +
+                    '}';
         }
     }
 }
