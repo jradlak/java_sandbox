@@ -15,8 +15,11 @@ public class DijkstraAlgorithmTest {
     }
 
     @Test
-    public void calculatePathLengthTest() throws Exception {
+    public void dijkstraAlgorithmTest() throws Exception {
         DijkstraAlgorithm.calculatePathLength(this.graph, "1");
         System.out.println("Graph with calculated path lengths: \n" + graph.toString());
+
+        DijkstraAlgorithm.calculateMinimalPathLengths(this.graph);
+        System.out.println("Graph with calculated minimal path lengths: \n" + graph.toString());
     }
 }

@@ -1,7 +1,9 @@
 package com.jrd.seventh_chapter.dijkstra;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Kuba on 2016-08-15.
@@ -18,6 +20,10 @@ public class Graph {
 
     public Graph() {
         this.vertices = new HashMap<>();
+    }
+
+    public Set<Vertex> getAllVertices() {
+        return new HashSet<>(vertices.values());
     }
 
     public Vertex getVertexByName(String vertexName) throws Exception {
@@ -73,7 +79,7 @@ public class Graph {
                 '}';
     }
 
-    public static class Vertex {
+    public static class Vertex implements Comparable<Vertex> {
         private String name;
 
         private Map<String, Edge> edges;
@@ -113,6 +119,11 @@ public class Graph {
                     ", edges=" + edges +
                     ", pathLength=" + pathLength +
                     '}';
+        }
+
+        @Override
+        public int compareTo(Vertex vertex) {
+            return (int)(this.pathLength - vertex.pathLength);
         }
     }
 
