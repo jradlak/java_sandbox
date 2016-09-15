@@ -18,6 +18,8 @@ public class WordsCounter {
                 .replace(".", "").replace("-", "").replace("\"", "").replace("?", "")
                 .split(" ");
 
+        //testowanie czy to w ogóle działa!
+
         TreeMap<String, Integer> result = new TreeMap<>();
         Arrays.asList(words).forEach(w -> result.compute(w,
                 (k, v) -> v == null ? 1 : v + 1 ));
