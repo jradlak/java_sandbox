@@ -15,7 +15,7 @@ public class ListaWidokTest {
         System.out.println(lista);
         Assert.assertTrue(10 == lista.size());
     }
-    
+
     @Test(expected = UnsupportedOperationException.class)
     public void probaModyfikacjiListy() throws UnsupportedOperationException {
         List<Integer> lista = ListaWidok.zwrocNiemodyfikowalnaListe(10);
