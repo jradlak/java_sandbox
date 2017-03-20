@@ -24,4 +24,8 @@ public class TokenizerTest {
         tokenizer.tokenizeFirst100Words().forEach(s -> System.out.println(s));
     }
 
+    @Test
+    public void testGetMax10() {
+        tokenizer.getMax10().stream().forEach(s -> System.out.print(s + ", "));
+    }
 }
