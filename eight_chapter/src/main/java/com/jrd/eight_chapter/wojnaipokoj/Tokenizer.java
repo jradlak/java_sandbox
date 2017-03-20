@@ -23,7 +23,6 @@ public class Tokenizer {
     public Tokenizer(String plik) throws IOException {
         String zawartosc = new String(Files.readAllBytes(Paths.get(plik)));
         slowa = Arrays.asList(zawartosc.split("\\W+"));
-
     }
 
     public Stream<String> tokenizeFirst100Words() {
