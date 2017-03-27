@@ -1,8 +1,5 @@
 package com.jrd.eight_chapter.litery;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,24 +8,13 @@ import java.util.stream.Collectors;
  */
 public class RozneSamogloski {
 
-    private final String plik = "/usr/share/dict/words";
-
     private final String samogloski3 = "aąeęiuoóy";
     private final String samogloski = "aeiuoy";
 
     private List<String> slowa;
 
-    public RozneSamogloski() {
-        try {
-            wczytajSlownik();
-        } catch (IOException e) {
-            System.out.println("Kurde balans, wzięło i wybuchło: " + e.getMessage());
-        }
-    }
-
-    private void wczytajSlownik() throws IOException {
-        String zawartosc = new String(Files.readAllBytes(Paths.get(plik)));
-        slowa = Arrays.asList(zawartosc.split("\\W+"));
+    public RozneSamogloski(Slownik slownik) {
+        slowa = slownik.getSlowa();
     }
 
     public Set<String> zwrocSlowa() {

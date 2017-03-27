@@ -3,7 +3,6 @@ package com.jrd.eight_chapter.litery;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -15,7 +14,7 @@ public class RozneSamogloskiTest {
 
     @Before
     public void setup() {
-        rozneSamogloski = new RozneSamogloski();
+        rozneSamogloski = new RozneSamogloski(new Slownik());
     }
 
     @Test
