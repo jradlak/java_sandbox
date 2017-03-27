@@ -3,10 +3,7 @@ package com.jrd.eight_chapter.litery;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -14,10 +11,10 @@ import java.util.stream.Collectors;
  */
 public class RozneSamogloski {
 
-    private final String plik = "/usr/share/dict/polish";
+    private final String plik = "/usr/share/dict/words";
 
-    private final String samogloski = "aąeęiuoóy";
-    private final String samogloski2 = "aeiuoy";
+    private final String samogloski3 = "aąeęiuoóy";
+    private final String samogloski = "aeiuoy";
 
     private List<String> slowa;
 
@@ -34,29 +31,30 @@ public class RozneSamogloski {
         slowa = Arrays.asList(zawartosc.split("\\W+"));
     }
 
-    public List<String> zwrocSlowa() {
-        List<String> samo = Arrays.asList(samogloski.split(""));
+    public Set<String> zwrocSlowa() {
+        Set<String> samo = new HashSet<>(Arrays.asList(samogloski.split("")));
         return slowa
                 .parallelStream()
                 .map(s -> Arrays.asList(s.toLowerCase().split("")))
                 .filter(l -> {
-                    Set<String> rozneSamogloski = new HashSet<>();
+                    Map<String, Integer> rozneSamogloski = new HashMap<>();
                     for (String sl : l) {
                         if (samo.contains(sl)) {
-                            if (!rozneSamogloski.contains(sl)) {
-                                rozneSamogloski.add(sl);
-                            }
+                            rozneSamogloski.merge(sl, 1, Integer::sum);
                         }
                     }
 
-                    if (rozneSamogloski.size() == 5) {
+                    if (!rozneSamogloski
+                            .values()
+                            .stream()
+                            .filter(v -> v.intValue() > 1).findAny().isPresent() &&
+                            rozneSamogloski.keySet().size() == 5) {
                         return true;
                     }
 
                     return false;
-
                 })
                 .map(s -> s.stream().collect(Collectors.joining()))
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
     }
 }
