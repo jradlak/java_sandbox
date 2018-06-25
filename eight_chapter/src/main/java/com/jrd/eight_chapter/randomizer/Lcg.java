@@ -7,7 +7,7 @@ import java.util.stream.Stream;
  *
  * klasa implementująca Liniowy Generator Kongruencyjny
  *
- * Rozwiązanie zadania
+ * Rozwiązanie zadania 4.
  */
 public class Lcg {
     private long xn;

@@ -19,7 +19,7 @@ public class NajwiekszaDlugosc {
 
     public List<String> znajdzNajdluzszeCiagi() {
         int maxDlugosc =  slowa.stream()
-                .max((s1, s2) -> s1.length() - s2.length()
+                .max(Comparator.comparingInt(String::length)
                 ).get().length();
 
         return slowa

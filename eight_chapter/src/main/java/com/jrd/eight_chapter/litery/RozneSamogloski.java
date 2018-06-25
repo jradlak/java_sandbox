@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 /**
  * Created by jakub on 21.03.17.
+ *
+ * Rozwiązanie zadania 8.
  */
 public class RozneSamogloski {
 
@@ -30,15 +32,12 @@ public class RozneSamogloski {
                         }
                     }
 
-                    if (!rozneSamogloski
+                    return rozneSamogloski
                             .values()
                             .stream()
-                            .filter(v -> v.intValue() > 1).findAny().isPresent() &&
-                            rozneSamogloski.keySet().size() == 5) {
-                        return true;
-                    }
+                            .noneMatch(v -> v > 1) &&
+                            rozneSamogloski.keySet().size() == 5;
 
-                    return false;
                 })
                 .map(s -> s.stream().collect(Collectors.joining()))
                 .collect(Collectors.toSet());

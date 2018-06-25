@@ -28,25 +28,25 @@ public class Tokenizer {
     public Stream<String> tokenizeFirst100Words() {
         return slowa
                 .stream()
-                .filter(s -> CodePoints.poprawnyIdentyfikatorJava(s))
+                .filter(CodePoints::poprawnyIdentyfikatorJava)
                 .limit(100);
     }
 
     /**
      * Zwraca 10 najczęściej występujących słów
-     * @return
+     *
      */
     public List<String> getMax10() {
         Map<String, Long> liczbaWystapien =
             slowa
-            .stream()
+                    .stream()
                     .map(String::toLowerCase)
                     .collect(
-                    groupingBy(String::new,
-                    counting()));
+                        groupingBy(String::new, counting()));
 
         List<String> result = new ArrayList<>();
-                liczbaWystapien
+
+        liczbaWystapien
                 .entrySet().stream().sorted(Map.Entry.<String, Long>comparingByValue().reversed())
                         .limit(10)
                 .forEachOrdered(x -> result.add(x.getKey()));

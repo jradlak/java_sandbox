@@ -2,6 +2,8 @@ package com.jrd.eight_chapter.codepoints;
 
 /**
  * Created by jakub on 29.11.16.
+ *
+ * Rozwiązanie zadania 6.
  */
 public class CodePoints {
     public static boolean tylkoLitery(String s) {
@@ -9,11 +11,8 @@ public class CodePoints {
     }
 
     public static boolean poprawnyIdentyfikatorJava(String s) {
-        if (Character.isAlphabetic(s.charAt(0))) {
-            return s.substring(1, s.length())
-                    .codePoints().allMatch(c -> Character.isAlphabetic(c) || Character.isDigit(c));
-        } else {
-            return false;
-        }
+        return Character.isAlphabetic(s.charAt(0))
+                && s.substring(1, s.length()).codePoints()
+                    .allMatch(c -> Character.isAlphabetic(c) || Character.isDigit(c));
     }
 }
